@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工商管理博士(DBA) | 环球硕博网</title>
-    <meta name="description" content="全球顶尖在线DBA项目，在职可读，留服认证。企业高管首选博士学位，在职攻读工商管理博士。">
-    <meta property="og:title" content="工商管理博士(DBA) | 环球硕博网">
-    <meta property="og:description" content="全球顶尖工商管理博士(DBA)项目，在职可读，留服认证。">
+    <title>公共管理硕士(MPA) | 环球硕博网</title>
+    <meta name="description" content="全球顶尖在线MPA项目，在职可读，留服认证。公共管理领域首选硕士学位。">
+    <meta property="og:title" content="公共管理硕士(MPA) | 环球硕博网">
+    <meta property="og:description" content="全球顶尖公共管理硕士(MPA)项目，在职可读，留服认证。">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_CN">
     
@@ -14,8 +14,8 @@
     {
       "@context": "https://schema.org",
       "@type": "EducationalOccupationalProgram",
-      "name": "工商管理博士(DBA)",
-      "description": "全球顶尖工商管理博士(DBA)项目，在职可读，留服认证。",
+      "name": "公共管理硕士(MPA)",
+      "description": "全球顶尖公共管理硕士(MPA)项目，在职可读，留服认证。",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "环球硕博网",
@@ -32,19 +32,19 @@
 {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "工商管理博士(DBA)",
-  "description": "全球顶尖商学院在线DBA项目，在职可读，3-4年毕业，企业高管首选博士学位。法国波城商学院、金门大学等名校合作，留服认证。",
+  "name": "在线公共管理硕士(MPA)",
+  "description": "全球顶尖大学在线MPA项目，在职可读免联考，1-2年毕业。适合政府、事业单位及NGO从业者，教育部留服认证。",
   "provider": {
     "@type": "EducationalOrganization",
-    "name": "金门大学 / 法国波城商学院 / 马来西亚国立大学 等",
+    "name": "合作院校待更新",
     "sameAs": "https://clawone.site"
   },
   "offers": {
     "@type": "Offer",
     "category": "Paid"
   },
-  "timeRequired": "P3Y",
-  "educationalCredentialAwarded": "Doctor of Business Administration (DBA)"
+  "timeRequired": "P1Y6M",
+  "educationalCredentialAwarded": "Master of Public Administration (MPA)"
 }
     </script>
 
@@ -98,72 +98,10 @@
     @media(max-width:768px){.hero h1{font-size:2rem}.feature-grid,.program-grid{grid-template-columns:1fr}.footer-content{grid-template-columns:1fr}.nav-links{display:none}}
     </style>
 
-    <link rel="canonical" href="https://clawone.site/online-dba/">
+    <link rel="canonical" href="https://clawone.site/online-mpa/">
     <meta property="og:image" content="https://clawone.site/wechat_qr.png">
-    <meta property="og:url" content="https://clawone.site/online-dba/">
+    <meta property="og:url" content="https://clawone.site/online-mpa/">
     <link rel="icon" type="image/png" href="/favicon-v2.png">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "首页",
-          "item": "https://clawone.site/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "在线工商管理博士(DBA)",
-          "item": "https://clawone.site/online-dba/"
-        }
-      ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "DBA和PhD有什么区别？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "DBA（工商管理博士）偏重实践应用，适合企业高管；PhD偏重学术研究，适合走学术路线。DBA更适合在职管理者提升学历和视野。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "在职DBA需要多长时间？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "通常2-3年完成。学制因院校不同有所差异，大部分课程在线完成，部分项目有短期集中面授。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "DBA学位国内认可吗？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "认可。我们推荐的DBA项目均可在中留服认证，认证后与国内博士学位具有同等法律效力，可用于高校教师评定、企业高管晋升等。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "读DBA需要MBA学历吗？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "不一定。部分DBA项目接受本科+丰富管理经验直接申请，不强制要求MBA学历。具体条件请咨询顾问。"
-          }
-        }
-      ]
-    }
-    </script>
 </head>
 <body>
     <header>
@@ -172,7 +110,7 @@
                 <a href="/" class="logo">环球硕博网</a>
                 <div class="nav-links">
                     <a href="/">首页</a>
-                    <a href="/online-dba/" class="current">工商管理博士(DBA)</a>
+                    <a href="/online-mpa/" class="current">公共管理硕士(MPA)</a>
                     <a href="/online-med/">教育硕士</a>
                     <a href="/online-dba/">DBA博士</a>
                     <a href="/online-mpa/">MPA硕士</a>
@@ -185,20 +123,20 @@
     <div class="breadcrumb">
         <div class="container">
             <a href="/">首页</a><span>›</span>
-            <span class="current">工商管理博士(DBA)</span>
+            <span class="current">公共管理硕士(MPA)</span>
         </div>
     </div>
     
     <section class="hero">
         <div class="container">
-            <h1>工商管理博士(DBA)</h1>
-            <p>全球顶尖院校工商管理博士(DBA)项目，在职可读，留服认证。无需脱产，工作学习两不误，助力职场进阶。</p>
+            <h1>公共管理硕士(MPA)</h1>
+            <p>全球顶尖院校公共管理硕士(MPA)项目，在职可读，留服认证。无需脱产，工作学习两不误，助力职场进阶。</p>
         </div>
     </section>
     
     <section class="section">
         <div class="container">
-            <h2 class="section-title">为什么选择工商管理博士(DBA)？</h2>
+            <h2 class="section-title">为什么选择公共管理硕士(MPA)？</h2>
             <div class="feature-grid">
                 <div class="feature-card"><h3>🚀 职场进阶</h3><p>提升管理能力，拓展职业边界，为晋升管理层做好准备</p></div>
                 <div class="feature-card"><h3>💼 在职可读</h3><p>灵活学习时间，无需脱产，工作学习两不误</p></div>
@@ -217,44 +155,44 @@
                 <div class="program-card">
                     <div style="height:180px;background:linear-gradient(135deg,#0d1b2a,#1a2d42)"></div>
                     <h3>美国 MBA</h3>
-                    <p>美国顶尖商学院工商管理博士(DBA)，AACSB认证，全球认可</p>
+                    <p>美国顶尖商学院公共管理硕士(MPA)，AACSB认证，全球认可</p>
                     <a href="/?open=assessment" class="btn">免费评估 →</a>
                 </div>
                 <div class="program-card">
                     <div style="height:180px;background:linear-gradient(135deg,#0d1b2a,#1a2d42)"></div>
                     <h3>欧洲 MBA</h3>
-                    <p>欧洲知名商学院工商管理博士(DBA)，EQUIS认证，国际化课程</p>
+                    <p>欧洲知名商学院公共管理硕士(MPA)，EQUIS认证，国际化课程</p>
                     <a href="/?open=assessment" class="btn">免费评估 →</a>
                 </div>
                 <div class="program-card">
                     <div style="height:180px;background:linear-gradient(135deg,#0d1b2a,#1a2d42)"></div>
                     <h3>亚洲 MBA</h3>
-                    <p>亚洲顶尖商学院工商管理博士(DBA)，更贴近亚洲商业环境</p>
+                    <p>亚洲顶尖商学院公共管理硕士(MPA)，更贴近亚洲商业环境</p>
                     <a href="/?open=assessment" class="btn">免费评估 →</a>
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="section" style="background:#f8fafc"><div class="container"><h2 class="section-title">项目信息速查</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:32px"><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">学制</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">36-48个月<br>在职灵活安排</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">学费区间</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">￥15万-40万<br>因院校而异</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">认证机构</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">AACSB / EQUIS<br>法国教育部</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">入学要求</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">硕士及以上学历<br>5年以上管理经验</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">授课语言</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">英文/中文<br>授课可选</div></div></div></div></section>
+    <section class="section" style="background:#f8fafc"><div class="container"><h2 class="section-title">项目信息速查</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:32px"><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">学制</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">12-24个月<br>在职灵活安排</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">学费区间</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">￥5万-20万<br>因院校而异</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">认证机构</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">教育部<br>认可院校</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">入学要求</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">本科及以上学历<br>相关工作经验</div></div><div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center"><div style="font-size:0.85rem;color:#c9a227;font-weight:600;margin-bottom:6px">授课语言</div><div style="color:#0d1b2a;font-size:0.95rem;line-height:1.5">英文/中文<br>授课可选</div></div></div></div></section>
     <section class="section">
         <div class="container">
             <h2 class="section-title">常见问题</h2>
             <div class="faq-list">
                 <div class="faq-item open">
-                    <div class="faq-question">工商管理博士(DBA)的学位证书和在校生一样吗？</div>
-                    <div class="faq-answer">完全一样。工商管理博士(DBA)毕业生获得的学位证书与在校生完全相同，不会标注"在线"字样，全球认可。</div>
+                    <div class="faq-question">公共管理硕士(MPA)的学位证书和在校生一样吗？</div>
+                    <div class="faq-answer">完全一样。公共管理硕士(MPA)毕业生获得的学位证书与在校生完全相同，不会标注"在线"字样，全球认可。</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">工商管理博士(DBA)可以做留服认证吗？</div>
-                    <div class="faq-answer">可以。只要就读的院校在教育部认可名单内，工商管理博士(DBA)学位可以正常做留服认证。</div>
+                    <div class="faq-question">公共管理硕士(MPA)可以做留服认证吗？</div>
+                    <div class="faq-answer">可以。只要就读的院校在教育部认可名单内，公共管理硕士(MPA)学位可以正常做留服认证。</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">在职读MBA需要多长时间？</div>
                     <div class="faq-answer">一般1.5-2年，具体取决于学校和课程安排。部分加速项目最快12个月可完成。</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">工商管理博士(DBA)的学费大概多少？</div>
+                    <div class="faq-question">公共管理硕士(MPA)的学费大概多少？</div>
                     <div class="faq-answer">不同院校差异较大，一般在5万-30万人民币之间。相比传统留学（学费+生活费50万+），性价比非常高。</div>
                 </div>
             </div>
@@ -278,7 +216,7 @@
                 </div>
                 <div class="footer-links">
                     <h4>热门项目</h4>
-                    <a href="/online-dba/">工商管理博士(DBA)</a>
+                    <a href="/online-mpa/">公共管理硕士(MPA)</a>
                     <a href="/online-med/">教育硕士</a>
                     <a href="/online-dba/">DBA博士</a>
                     <a href="/online-mpa/">MPA硕士</a>

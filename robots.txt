@@ -1,4 +1,46 @@
+# 环球硕博网 - clawone.site robots.txt
+# 更新: 2026-06-14
+
+# 搜索引擎
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI 搜索引擎
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# 禁止抓取的管理/内部路径
 User-agent: *
+Disallow: /admin/
+Disallow: /api/
 Allow: /
 
 Sitemap: https://clawone.site/sitemap.xml
