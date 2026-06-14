@@ -1,0 +1,15 @@
+{
+  "emoji": "🧠",
+  "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+  "badge": "热门",
+  "title": "心理学硕士",
+  "desc": "12个月在线攻读，QS认证，证书无\"online\"字样，在职人士性价比之选",
+  "tags": [
+    "12个月",
+    "2万起",
+    "QS认证",
+    "免联考"
+  ],
+  "visible": true,
+  "weight": 1
+}

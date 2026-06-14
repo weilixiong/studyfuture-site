@@ -1,0 +1,15 @@
+{
+  "emoji": "💼",
+  "gradient": "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
+  "badge": "管理",
+  "title": "工商管理硕士 MBA",
+  "desc": "无需出国在线读，美国贝翰文大学MBA，NSC全日制学籍权威认证",
+  "tags": [
+    "在线读",
+    "NSC认证",
+    "美国学籍",
+    "管理学"
+  ],
+  "visible": true,
+  "weight": 6
+}

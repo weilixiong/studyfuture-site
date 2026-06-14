@@ -1,0 +1,15 @@
+{
+  "emoji": "🏥",
+  "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+  "badge": "医生专属",
+  "title": "医疗管理博士",
+  "desc": "在职医生专属，10万+读博，不耽误工作，高性价比学历提升",
+  "tags": [
+    "在职可读",
+    "10万+",
+    "博士学位",
+    "在线学习"
+  ],
+  "visible": true,
+  "weight": 3
+}

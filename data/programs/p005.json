@@ -1,0 +1,15 @@
+{
+  "emoji": "📖",
+  "gradient": "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+  "badge": "教育学",
+  "title": "教育学硕士/博士",
+  "desc": "1.5年留服认证，川渝免考硕士，教师群体专属学历提升通道",
+  "tags": [
+    "1.5年",
+    "留服认证",
+    "免考",
+    "教师专属"
+  ],
+  "visible": true,
+  "weight": 5
+}

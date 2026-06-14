@@ -1,0 +1,72 @@
+backend:
+  name: github
+  repo: weilixiong/studyfuture-site
+  branch: gh-pages
+  commit_messages:
+    create: '✨ 新增: {{slug}}'
+    update: '📝 更新: {{slug}}'
+    delete: '🗑️ 删除: {{slug}}'
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "programs"
+    label: "📚 热门项目"
+    folder: "data/programs"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Emoji图标", name: "emoji", widget: "string", default: "🎓" }
+      - { label: "项目名称", name: "title", widget: "string" }
+      - { label: "项目描述", name: "desc", widget: "text", default: "" }
+      - { label: "标签（逗号分隔）", name: "tags", widget: "string", default: "12个月,2万起,QS认证" }
+      - { label: "徽章", name: "badge", widget: "string", default: "热门" }
+      - { label: "渐变色", name: "gradient", widget: "string", default: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" }
+      - { label: "排序权重", name: "weight", widget: "number", default: 0 }
+      - { label: "是否显示", name: "visible", widget: "boolean", default: true }
+
+  - name: "testimonials"
+    label: "💬 学员故事"
+    folder: "data/testimonials"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "故事内容", name: "quote", widget: "text" }
+      - { label: "学员姓名", name: "name", widget: "string" }
+      - { label: "学员身份", name: "role", widget: "string" }
+      - { label: "头像Emoji", name: "avatar", widget: "string", default: "👩" }
+      - { label: "排序权重", name: "weight", widget: "number", default: 0 }
+      - { label: "是否显示", name: "visible", widget: "boolean", default: true }
+
+  - name: "faqs"
+    label: "❓ 常见问题"
+    folder: "data/faqs"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { label: "问题", name: "question", widget: "string" }
+      - { label: "回答", name: "answer", widget: "text" }
+      - { label: "排序权重", name: "weight", widget: "number", default: 0 }
+      - { label: "是否显示", name: "visible", widget: "boolean", default: true }
+
+  - name: "pages"
+    label: "⚙️ 网站设置"
+    files:
+      - name: "general"
+        label: "基本信息"
+        file: "data/settings.json"
+        fields:
+          - { label: "网站标题", name: "title", widget: "string" }
+          - { label: "Hero大标题", name: "heroTitle", widget: "string" }
+          - { label: "Hero副标题", name: "heroSubtitle", widget: "text" }
+          - { label: "统计数据-学员数", name: "statStudents", widget: "string", default: "10000+" }
+          - { label: "统计数据-院校数", name: "statSchools", widget: "string", default: "50+" }
+          - { label: "统计数据-毕业率", name: "statGradRate", widget: "string", default: "98%" }
+          - { label: "统计数据-最快毕业", name: "statFastGrad", widget: "string", default: "12个月" }
+          - { label: "联系电话", name: "phone", widget: "string" }
+          - { label: "联系邮箱", name: "email", widget: "string" }
+          - { label: "微信公众号", name: "wechat", widget: "string" }

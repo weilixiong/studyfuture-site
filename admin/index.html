@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 学未教育</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; }
+        
+        /* Login Screen */
+        .login-screen {
+            display: flex; align-items: center; justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a365d, #2a4a7f);
+        }
+        .login-box {
+            background: white; border-radius: 16px; padding: 48px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            text-align: center; max-width: 420px; width: 90%;
+        }
+        .login-box h1 { font-size: 24px; margin-bottom: 8px; color: #1a365d; }
+        .login-box p { color: #666; margin-bottom: 24px; font-size: 14px; }
+        .login-box input {
+            width: 100%; padding: 14px 16px; border: 2px solid #e0e5ec;
+            border-radius: 10px; font-size: 14px; margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        .login-box input:focus { outline: none; border-color: #1a365d; }
+        .login-box button {
+            width: 100%; padding: 14px; background: linear-gradient(135deg, #1a365d, #2a4a7f);
+            color: white; border: none; border-radius: 10px; font-size: 15px;
+            font-weight: 600; cursor: pointer; transition: transform 0.2s;
+        }
+        .login-box button:hover { transform: translateY(-2px); }
+        .login-hint { font-size: 12px; color: #999; margin-top: 16px; line-height: 1.6; }
+        .login-hint a { color: #1a365d; }
+
+        /* Admin Layout */
+        .admin { display: none; }
+        .admin.active { display: block; }
+        
+        .sidebar {
+            position: fixed; left: 0; top: 0; bottom: 0;
+            width: 220px; background: #1a365d; color: white;
+            padding: 24px 0;
+        }
+        .sidebar-logo {
+            padding: 0 24px; margin-bottom: 32px;
+        }
+        .sidebar-logo h2 { font-size: 18px; }
+        .sidebar-logo small { font-size: 11px; opacity: 0.6; }
+        .sidebar-nav a {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 24px; color: rgba(255,255,255,0.7);
+            text-decoration: none; font-size: 14px;
+            transition: all 0.2s;
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            background: rgba(255,255,255,0.1); color: white;
+        }
+        .sidebar-nav a span.icon { font-size: 18px; }
+        .sidebar-nav .divider { height: 1px; background: rgba(255,255,255,0.1); margin: 16px 24px; }
+
+        .main { margin-left: 220px; min-height: 100vh; }
+        .topbar {
+            background: white; padding: 16px 32px;
+            border-bottom: 1px solid #e0e5ec;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .topbar h1 { font-size: 20px; color: #1a365d; }
+        .topbar-right { display: flex; align-items: center; gap: 16px; }
+        .topbar a { color: #1a365d; text-decoration: none; font-size: 14px; }
+
+        .content { padding: 32px; }
+        
+        /* Stats Cards */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 32px; }
+        .stat-card {
+            background: white; border-radius: 12px; padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .stat-card .num { font-size: 32px; font-weight: 700; color: #1a365d; }
+        .stat-card .label { font-size: 14px; color: #666; margin-top: 4px; }
+
+        /* CRUD Table */
+        .card {
+            background: white; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden; margin-bottom: 24px;
+        }
+        .card-header {
+            padding: 20px 24px; border-bottom: 1px solid #f0f0f0;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .card-header h3 { font-size: 16px; }
+        .btn {
+            padding: 8px 16px; border-radius: 8px; font-size: 14px;
+            font-weight: 500; cursor: pointer; border: none;
+            transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-primary { background: #1a365d; color: white; }
+        .btn-primary:hover { background: #2a4a7f; }
+        .btn-sm { padding: 6px 12px; font-size: 13px; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-ghost { background: transparent; color: #666; }
+        .btn-ghost:hover { background: #f5f5f5; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 14px 24px; text-align: left; font-size: 14px; }
+        th { background: #fafbfc; color: #666; font-weight: 500; border-bottom: 1px solid #f0f0f0; }
+        td { border-bottom: 1px solid #f5f5f5; }
+        tr:hover td { background: #fafbfc; }
+        .actions { display: flex; gap: 8px; }
+        .badge { padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+        .badge-green { background: #dcfce7; color: #166534; }
+        .badge-gray { background: #f3f4f6; color: #6b7280; }
+
+        /* Modal */
+        .modal-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5); z-index: 1000;
+            align-items: center; justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: white; border-radius: 16px; padding: 32px;
+            max-width: 560px; width: 90%; max-height: 90vh; overflow-y: auto;
+        }
+        .modal h2 { font-size: 18px; margin-bottom: 24px; color: #1a365d; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 10px 14px; border: 2px solid #e0e5ec;
+            border-radius: 8px; font-size: 14px; font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: #1a365d;
+        }
+        .form-group textarea { min-height: 80px; resize: vertical; }
+        .form-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+
+        .hidden { display: none !important; }
+        .section { display: none; }
+        .section.active { display: block; }
+
+        /* Color picker presets */
+        .color-presets { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+        .color-preset {
+            width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
+            border: 2px solid transparent; transition: all 0.2s;
+        }
+        .color-preset:hover { transform: scale(1.15); }
+        .color-preset.selected { border-color: #1a365d; box-shadow: 0 0 0 2px rgba(26,54,93,0.3); }
+
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 24px; right: 24px;
+            background: #1a365d; color: white;
+            padding: 14px 24px; border-radius: 10px;
+            font-size: 14px; z-index: 2000;
+            transform: translateY(100px); opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        @media (max-width: 768px) {
+            .sidebar { width: 60px; }
+            .sidebar-logo h2, .sidebar-logo small, .sidebar-nav a span { display: none; }
+            .sidebar-nav a { padding: 14px; justify-content: center; }
+            .main { margin-left: 60px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOGIN -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-box">
+            <h1>📚 管理后台</h1>
+            <p>学未教育 · 内容管理系统</p>
+            <input type="password" id="tokenInput" placeholder="GitHub Personal Access Token" autocomplete="off">
+            <button onclick="login()">登录</button>
+            <p class="login-hint">
+                需要 <a href="https://github.com/settings/tokens/new" target="_blank">GitHub Token</a>（勾选 repo 权限）<br>
+                Token 仅存储在浏览器本地，不会上传到任何地方
+            </p>
+        </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div class="admin" id="adminPanel">
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <h2>📚 学未教育</h2>
+                <small>管理后台 v1.0</small>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active" onclick="showSection('dashboard', this)">
+                    <span class="icon">📊</span><span>数据概览</span>
+                </a>
+                <a href="#" onclick="showSection('programs', this)">
+                    <span class="icon">📚</span><span>项目管理</span>
+                </a>
+                <a href="#" onclick="showSection('testimonials', this)">
+                    <span class="icon">💬</span><span>学员故事</span>
+                </a>
+                <a href="#" onclick="showSection('faqs', this)">
+                    <span class="icon">❓</span><span>常见问题</span>
+                </a>
+                <a href="#" onclick="showSection('wp-programs', this)">
+                    <span class="icon">🌐</span><span>WP 项目管理</span>
+                </a>
+                <div class="divider"></div>
+                <a href="#" onclick="showSection('settings', this)">
+                    <span class="icon">⚙️</span><span>网站设置</span>
+                </a>
+                <a href="https://weilixiong.github.io/studyfuture-site/" target="_blank">
+                    <span class="icon">🌐</span><span>查看网站</span>
+                </a>
+                <a href="#" onclick="logout()">
+                    <span class="icon">🚪</span><span>退出登录</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="main">
+            <div class="topbar">
+                <h1 id="pageTitle">数据概览</h1>
+                <div class="topbar-right">
+                    <a href="https://weilixiong.github.io/studyfuture-site/" target="_blank">🌐 访问网站</a>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- DASHBOARD -->
+                <div class="section active" id="sec-dashboard">
+                    <div class="stats" id="dashboardStats"></div>
+                    <div class="card">
+                        <div class="card-header"><h3>📋 快速操作</h3></div>
+                        <div style="padding: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="showSection('programs', document.querySelector('.sidebar-nav a:nth-child(2)'))">+ 添加新项目</button>
+                            <button class="btn btn-primary" onclick="showSection('testimonials', document.querySelector('.sidebar-nav a:nth-child(3)'))">+ 添加学员故事</button>
+                            <button class="btn btn-primary" onclick="showSection('faqs', document.querySelector('.sidebar-nav a:nth-child(4)'))">+ 添加常见问题</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROGRAMS -->
+                <div class="section" id="sec-programs">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>📚 热门项目</h3>
+                            <button class="btn btn-primary" onclick="openProgramModal()">+ 添加项目</button>
+                        </div>
+                        <table>
+                            <thead><tr>
+                                <th>图标</th><th>名称</th><th>徽章</th><th>标签</th><th>状态</th><th>操作</th>
+                            </tr></thead>
+                            <tbody id="programsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIALS -->
+                <div class="section" id="sec-testimonials">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>💬 学员故事</h3>
+                            <button class="btn btn-primary" onclick="openTestimonialModal()">+ 添加故事</button>
+                        </div>
+                        <table>
+                            <thead><tr>
+                                <th>头像</th><th>姓名</th><th>身份</th><th>内容摘要</th><th>操作</th>
+                            </tr></thead>
+                            <tbody id="testimonialsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- FAQS -->
+                <div class="section" id="sec-faqs">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>❓ 常见问题</h3>
+                            <button class="btn btn-primary" onclick="openFaqModal()">+ 添加问题</button>
+                        </div>
+                        <table>
+                            <thead><tr>
+                                <th>问题</th><th>回答摘要</th><th>操作</th>
+                            </tr></thead>
+                            <tbody id="faqsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- WP PROGRAMS -->
+                <div class="section" id="sec-wp-programs">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🌐 WordPress 热门项目</h3>
+                            <button class="btn btn-primary" onclick="openWpProgramModal()">+ 发布到 WP</button>
+                        </div>
+                        <table>
+                            <thead><tr>
+                                <th>ID</th><th>标题</th><th>日期</th><th>标签</th><th>状态</th><th>操作</th>
+                            </tr></thead>
+                            <tbody id="wpProgramsTable"><tr><td colspan="6" style="text-align:center;padding:40px;color:#999">加载中...</td></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SETTINGS -->
+                <div class="section" id="sec-settings">
+                    <div class="card">
+                        <div class="card-header"><h3>⚙️ 网站设置</h3></div>
+                        <div style="padding: 24px;" id="settingsForm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALS -->
+    <div class="modal-overlay" id="programModal">
+        <div class="modal">
+            <h2 id="programModalTitle">添加项目</h2>
+            <div class="form-group">
+                <label>图标 Emoji</label>
+                <input type="text" id="pEmoji" value="🎓" maxlength="4">
+            </div>
+            <div class="form-group">
+                <label>项目名称</label>
+                <input type="text" id="pTitle" placeholder="例如：心理学硕士">
+            </div>
+            <div class="form-group">
+                <label>项目描述</label>
+                <textarea id="pDesc" placeholder="简短描述..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>标签（逗号分隔）</label>
+                <input type="text" id="pTags" placeholder="例如：12个月,2万起,QS认证">
+            </div>
+            <div class="form-group">
+                <label>徽章</label>
+                <input type="text" id="pBadge" placeholder="例如：热门" value="热门">
+            </div>
+            <div class="form-group">
+                <label>渐变色</label>
+                <input type="text" id="pGradient" value="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+                <div class="color-presets">
+                    <div class="color-preset" style="background:linear-gradient(135deg,#667eea,#764ba2)" onclick="selectGradient(this, 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)')"></div>
+                    <div class="color-preset" style="background:linear-gradient(135deg,#f093fb,#f5576c)" onclick="selectGradient(this, 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)')"></div>
+                    <div class="color-preset" style="background:linear-gradient(135deg,#4facfe,#00f2fe)" onclick="selectGradient(this, 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)')"></div>
+                    <div class="color-preset" style="background:linear-gradient(135deg,#43e97b,#38f9d)" onclick="selectGradient(this, 'linear-gradient(135deg, #43e97b 0%, #38f9d 100%)')"></div>
+                    <div class="color-preset" style="background:linear-gradient(135deg,#fa709a,#fee140)" onclick="selectGradient(this, 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)')"></div>
+                    <div class="color-preset" style="background:linear-gradient(135deg,#a8edea,#fed6e3)" onclick="selectGradient(this, 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)')"></div>
+                    <div class="color-preset" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)" onclick="selectGradient(this, 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)')"></div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-ghost" onclick="closeModals()">取消</button>
+                <button class="btn btn-primary" onclick="saveProgram()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="testimonialModal">
+        <div class="modal">
+            <h2 id="testimonialModalTitle">添加学员故事</h2>
+            <div class="form-group">
+                <label>头像 Emoji</label>
+                <input type="text" id="tAvatar" value="👩" maxlength="4">
+            </div>
+            <div class="form-group">
+                <label>学员姓名</label>
+                <input type="text" id="tName" placeholder="例如：王女士">
+            </div>
+            <div class="form-group">
+                <label>身份描述</label>
+                <input type="text" id="tRole" placeholder="例如：二胎妈妈 · 心理学硕士">
+            </div>
+            <div class="form-group">
+                <label>故事内容</label>
+                <textarea id="tQuote" placeholder="学员的真实故事..." style="min-height: 120px;"></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-ghost" onclick="closeModals()">取消</button>
+                <button class="btn btn-primary" onclick="saveTestimonial()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="wpProgramModal">
+        <div class="modal" style="max-width: 640px;">
+            <h2 id="wpProgramModalTitle">发布到 WordPress</h2>
+            <div class="form-group">
+                <label>项目标题</label>
+                <input type="text" id="wpTitle" placeholder="例如：心理学硕士项目">
+            </div>
+            <div class="form-group">
+                <label>项目内容（支持 HTML）</label>
+                <textarea id="wpContent" placeholder="&lt;h2&gt;项目简介&lt;/h2&gt;\n&lt;p&gt;详细描述...&lt;/p&gt;" style="min-height: 200px; font-family: monospace;"></textarea>
+            </div>
+            <div class="form-group">
+                <label>摘要</label>
+                <input type="text" id="wpExcerpt" placeholder="简短描述，显示在列表中...">
+            </div>
+            <div class="form-group">
+                <label>标签（逗号分隔）</label>
+                <input type="text" id="wpTags" placeholder="心理学,硕士,12个月,QS认证">
+            </div>
+            <div class="form-group">
+                <label>特色图片 URL</label>
+                <input type="text" id="wpImage" placeholder="https://example.com/image.jpg">
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-ghost" onclick="closeModals()">取消</button>
+                <button class="btn btn-primary" onclick="saveWpProgram()">发布</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="faqModal">
+        <div class="modal">
+            <h2 id="faqModalTitle">添加常见问题</h2>
+            <div class="form-group">
+                <label>问题</label>
+                <input type="text" id="fQuestion" placeholder="例如：在线硕士学历国内认可吗？">
+            </div>
+            <div class="form-group">
+                <label>回答</label>
+                <textarea id="fAnswer" placeholder="详细回答..." style="min-height: 120px;"></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-ghost" onclick="closeModals()">取消</button>
+                <button class="btn btn-primary" onclick="saveFaq()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const REPO = 'weilixiong/studyfuture-site';
+        const BRANCH = 'gh-pages';
+        let token = '';
+        let programs = [];
+        let testimonials = [];
+        let faqs = [];
+        let settings = {};
+        let editingIndex = -1;
+
+        // Login
+        function login() {
+            token = document.getElementById('tokenInput').value.trim();
+            if (!token) return showToast('请输入 Token');
+            localStorage.setItem('gh_token', token);
+            loadData();
+        }
+
+        function logout() {
+            localStorage.removeItem('gh_token');
+            location.reload();
+        }
+
+        // Check saved token
+        (function checkToken() {
+            const saved = localStorage.getItem('gh_token');
+            if (saved) {
+                token = saved;
+                loadData();
+            }
+        })();
+
+        // API calls
+        async function api(path, options = {}) {
+            const url = `https://api.github.com/repos/${REPO}/contents${path}`;
+            const headers = {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json'
+            };
+            if (options.body && typeof options.body === 'string') {
+                headers['Content-Type'] = 'application/json';
+            }
+            return fetch(url, { ...options, headers }).then(r => {
+                if (!r.ok) throw new Error(`API ${r.status}: ${r.statusText}`);
+                return r.json();
+            });
+        }
+
+        async function getFile(path) {
+            try {
+                const data = await api(path);
+                const content = atob(data.content.replace(/\n/g, ''));
+                return { content, sha: data.sha };
+            } catch (e) {
+                return { content: null, sha: null };
+            }
+        }
+
+        async function saveFile(path, content, message, sha = null) {
+            const body = {
+                message,
+                content: btoa(unescape(encodeURIComponent(content))),
+                branch: BRANCH
+            };
+            if (sha) body.sha = sha;
+            return api(path, {
+                method: sha ? 'PUT' : 'POST',
+                body: JSON.stringify(body)
+            });
+        }
+
+        // Load all data
+        async function loadData() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('active');
+            showToast('正在加载数据...');
+
+            try {
+                // Load settings
+                const settingsFile = await getFile('/data/settings.json');
+                if (settingsFile.content) settings = JSON.parse(settingsFile.content);
+
+                // Load programs
+                const dir = await api('/data/programs');
+                programs = [];
+                for (const file of dir) {
+                    if (file.name.endsWith('.json')) {
+                        const f = await getFile(`/data/programs/${file.name}`);
+                        if (f.content) programs.push({ ...JSON.parse(f.content), _file: file.name, _sha: f.sha });
+                    }
+                }
+                programs.sort((a, b) => (a.weight || 999) - (b.weight || 999));
+
+                // Load testimonials
+                const tdir = await api('/data/testimonials');
+                testimonials = [];
+                for (const file of tdir) {
+                    if (file.name.endsWith('.json')) {
+                        const f = await getFile(`/data/testimonials/${file.name}`);
+                        if (f.content) testimonials.push({ ...JSON.parse(f.content), _file: file.name, _sha: f.sha });
+                    }
+                }
+                testimonials.sort((a, b) => (a.weight || 999) - (b.weight || 999));
+
+                // Load FAQs
+                const fdir = await api('/data/faqs');
+                faqs = [];
+                for (const file of fdir) {
+                    if (file.name.endsWith('.json')) {
+                        const f = await getFile(`/data/faqs/${file.name}`);
+                        if (f.content) faqs.push({ ...JSON.parse(f.content), _file: file.name, _sha: f.sha });
+                    }
+                }
+                faqs.sort((a, b) => (a.weight || 999) - (b.weight || 999));
+
+                renderAll();
+                showToast('✅ 数据加载完成');
+            } catch (e) {
+                showToast('❌ 加载失败: ' + e.message);
+                console.error(e);
+            }
+        }
+
+        function renderAll() {
+            renderDashboard();
+            renderPrograms();
+            renderTestimonials();
+            renderFaqs();
+            renderSettings();
+        }
+
+        // Dashboard
+        function renderDashboard() {
+            document.getElementById('dashboardStats').innerHTML = `
+                <div class="stat-card"><div class="num">${programs.filter(p => p.visible !== false).length}</div><div class="label">热门项目</div></div>
+                <div class="stat-card"><div class="num">${testimonials.filter(t => t.visible !== false).length}</div><div class="label">学员故事</div></div>
+                <div class="stat-card"><div class="num">${faqs.filter(f => f.visible !== false).length}</div><div class="label">常见问题</div></div>
+                <div class="stat-card"><div class="num">${settings.heroTitle ? '✅' : '❌'}</div><div class="label">网站配置</div></div>
+            `;
+        }
+
+        // Programs
+        function renderPrograms() {
+            const tbody = document.getElementById('programsTable');
+            tbody.innerHTML = programs.map((p, i) => `
+                <tr>
+                    <td style="font-size:24px">${p.emoji || '🎓'}</td>
+                    <td><strong>${p.title}</strong></td>
+                    <td><span class="badge badge-green">${p.badge || ''}</span></td>
+                    <td style="font-size:12px;color:#666">${(p.tags || []).join(' · ')}</td>
+                    <td>${p.visible !== false ? '<span class="badge badge-green">显示</span>' : '<span class="badge badge-gray">隐藏</span>'}</td>
+                    <td class="actions">
+                        <button class="btn btn-ghost btn-sm" onclick="editProgram(${i})">✏️</button>
+                        <button class="btn btn-ghost btn-sm" onclick="deleteProgram(${i})">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openProgramModal(index = -1) {
+            editingIndex = index;
+            document.getElementById('programModalTitle').textContent = index >= 0 ? '编辑项目' : '添加项目';
+            if (index >= 0) {
+                const p = programs[index];
+                document.getElementById('pEmoji').value = p.emoji || '🎓';
+                document.getElementById('pTitle').value = p.title;
+                document.getElementById('pDesc').value = p.desc;
+                document.getElementById('pTags').value = (p.tags || []).join(',');
+                document.getElementById('pBadge').value = p.badge || '';
+                document.getElementById('pGradient').value = p.gradient || '';
+            } else {
+                document.getElementById('pEmoji').value = '🎓';
+                document.getElementById('pTitle').value = '';
+                document.getElementById('pDesc').value = '';
+                document.getElementById('pTags').value = '';
+                document.getElementById('pBadge').value = '热门';
+                document.getElementById('pGradient').value = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+            document.getElementById('programModal').classList.add('active');
+        }
+
+        async function saveProgram() {
+            const data = {
+                emoji: document.getElementById('pEmoji').value,
+                title: document.getElementById('pTitle').value,
+                desc: document.getElementById('pDesc').value,
+                tags: document.getElementById('pTags').value.split(',').map(s => s.trim()).filter(Boolean),
+                badge: document.getElementById('pBadge').value,
+                gradient: document.getElementById('pGradient').value,
+                visible: true,
+                weight: editingIndex >= 0 ? programs[editingIndex].weight : programs.length + 1
+            };
+
+            if (!data.title) return showToast('请输入项目名称');
+
+            try {
+                const filename = editingIndex >= 0 ? programs[editingIndex]._file : `p${Date.now()}.json`;
+                const sha = editingIndex >= 0 ? programs[editingIndex]._sha : null;
+                await saveFile(`/data/programs/${filename}`, JSON.stringify(data, null, 2),
+                    `${editingIndex >= 0 ? '更新' : '新增'}项目: ${data.title}`, sha);
+                closeModals();
+                showToast('✅ 已保存');
+                await loadData();
+            } catch (e) {
+                showToast('❌ 保存失败: ' + e.message);
+            }
+        }
+
+        function editProgram(i) { openProgramModal(i); }
+
+        async function deleteProgram(i) {
+            if (!confirm(`确定删除「${programs[i].title}」？`)) return;
+            try {
+                await saveFile(`/data/programs/${programs[i]._file}`, '', `删除项目: ${programs[i].title}`, programs[i]._sha);
+                showToast('✅ 已删除');
+                await loadData();
+            } catch (e) {
+                showToast('❌ 删除失败: ' + e.message);
+            }
+        }
+
+        // Testimonials
+        function renderTestimonials() {
+            const tbody = document.getElementById('testimonialsTable');
+            tbody.innerHTML = testimonials.map((t, i) => `
+                <tr>
+                    <td style="font-size:24px">${t.avatar || '👩'}</td>
+                    <td><strong>${t.name}</strong></td>
+                    <td style="font-size:13px;color:#666">${t.role}</td>
+                    <td style="font-size:13px;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${(t.quote || '').substring(0, 50)}...</td>
+                    <td class="actions">
+                        <button class="btn btn-ghost btn-sm" onclick="editTestimonial(${i})">✏️</button>
+                        <button class="btn btn-ghost btn-sm" onclick="deleteTestimonial(${i})">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openTestimonialModal(index = -1) {
+            editingIndex = index;
+            document.getElementById('testimonialModalTitle').textContent = index >= 0 ? '编辑故事' : '添加故事';
+            if (index >= 0) {
+                const t = testimonials[index];
+                document.getElementById('tAvatar').value = t.avatar || '👩';
+                document.getElementById('tName').value = t.name;
+                document.getElementById('tRole').value = t.role;
+                document.getElementById('tQuote').value = t.quote;
+            } else {
+                document.getElementById('tAvatar').value = '👩';
+                document.getElementById('tName').value = '';
+                document.getElementById('tRole').value = '';
+                document.getElementById('tQuote').value = '';
+            }
+            document.getElementById('testimonialModal').classList.add('active');
+        }
+
+        async function saveTestimonial() {
+            const data = {
+                avatar: document.getElementById('tAvatar').value,
+                name: document.getElementById('tName').value,
+                role: document.getElementById('tRole').value,
+                quote: document.getElementById('tQuote').value,
+                visible: true,
+                weight: editingIndex >= 0 ? testimonials[editingIndex].weight : testimonials.length + 1
+            };
+
+            if (!data.name || !data.quote) return showToast('请填写完整信息');
+
+            try {
+                const filename = editingIndex >= 0 ? testimonials[editingIndex]._file : `t${Date.now()}.json`;
+                const sha = editingIndex >= 0 ? testimonials[editingIndex]._sha : null;
+                await saveFile(`/data/testimonials/${filename}`, JSON.stringify(data, null, 2),
+                    `${editingIndex >= 0 ? '更新' : '新增'}故事: ${data.name}`, sha);
+                closeModals();
+                showToast('✅ 已保存');
+                await loadData();
+            } catch (e) {
+                showToast('❌ 保存失败: ' + e.message);
+            }
+        }
+
+        function editTestimonial(i) { openTestimonialModal(i); }
+
+        async function deleteTestimonial(i) {
+            if (!confirm(`确定删除「${testimonials[i].name}」的故事？`)) return;
+            try {
+                await saveFile(`/data/testimonials/${testimonials[i]._file}`, '', `删除故事: ${testimonials[i].name}`, testimonials[i]._sha);
+                showToast('✅ 已删除');
+                await loadData();
+            } catch (e) {
+                showToast('❌ 删除失败: ' + e.message);
+            }
+        }
+
+        // FAQs
+        function renderFaqs() {
+            const tbody = document.getElementById('faqsTable');
+            tbody.innerHTML = faqs.map((f, i) => `
+                <tr>
+                    <td><strong>${f.question}</strong></td>
+                    <td style="font-size:13px;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${(f.answer || '').substring(0, 50)}...</td>
+                    <td class="actions">
+                        <button class="btn btn-ghost btn-sm" onclick="editFaq(${i})">✏️</button>
+                        <button class="btn btn-ghost btn-sm" onclick="deleteFaq(${i})">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openFaqModal(index = -1) {
+            editingIndex = index;
+            document.getElementById('faqModalTitle').textContent = index >= 0 ? '编辑问题' : '添加问题';
+            if (index >= 0) {
+                document.getElementById('fQuestion').value = faqs[index].question;
+                document.getElementById('fAnswer').value = faqs[index].answer;
+            } else {
+                document.getElementById('fQuestion').value = '';
+                document.getElementById('fAnswer').value = '';
+            }
+            document.getElementById('faqModal').classList.add('active');
+        }
+
+        async function saveFaq() {
+            const data = {
+                question: document.getElementById('fQuestion').value,
+                answer: document.getElementById('fAnswer').value,
+                visible: true,
+                weight: editingIndex >= 0 ? faqs[editingIndex].weight : faqs.length + 1
+            };
+
+            if (!data.question || !data.answer) return showToast('请填写完整信息');
+
+            try {
+                const filename = editingIndex >= 0 ? faqs[editingIndex]._file : `f${Date.now()}.json`;
+                const sha = editingIndex >= 0 ? faqs[editingIndex]._sha : null;
+                await saveFile(`/data/faqs/${filename}`, JSON.stringify(data, null, 2),
+                    `${editingIndex >= 0 ? '更新' : '新增'}FAQ: ${data.question.substring(0, 20)}`, sha);
+                closeModals();
+                showToast('✅ 已保存');
+                await loadData();
+            } catch (e) {
+                showToast('❌ 保存失败: ' + e.message);
+            }
+        }
+
+        function editFaq(i) { openFaqModal(i); }
+
+        async function deleteFaq(i) {
+            if (!confirm(`确定删除「${faqs[i].question}」？`)) return;
+            try {
+                await saveFile(`/data/faqs/${faqs[i]._file}`, '', `删除FAQ: ${faqs[i].question.substring(0, 20)}`, faqs[i]._sha);
+                showToast('✅ 已删除');
+                await loadData();
+            } catch (e) {
+                showToast('❌ 删除失败: ' + e.message);
+            }
+        }
+
+        // Settings
+        function renderSettings() {
+            document.getElementById('settingsForm').innerHTML = `
+                <div class="form-group">
+                    <label>Hero 大标题</label>
+                    <input type="text" id="sHeroTitle" value="${settings.heroTitle || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Hero 副标题</label>
+                    <textarea id="sHeroSub">${settings.heroSubtitle || ''}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>学员数显示</label>
+                    <input type="text" id="sStudents" value="${settings.statStudents || ''}">
+                </div>
+                <div class="form-group">
+                    <label>合作院校数显示</label>
+                    <input type="text" id="sSchools" value="${settings.statSchools || ''}">
+                </div>
+                <div class="form-group">
+                    <label>毕业通过率显示</label>
+                    <input type="text" id="sGradRate" value="${settings.statGradRate || ''}">
+                </div>
+                <div class="form-group">
+                    <label>最快毕业时间显示</label>
+                    <input type="text" id="sFastGrad" value="${settings.statFastGrad || ''}">
+                </div>
+                <div class="form-group">
+                    <label>联系邮箱</label>
+                    <input type="text" id="sEmail" value="${settings.contactEmail || ''}">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-primary" onclick="saveSettings()">💾 保存设置</button>
+                </div>
+            `;
+        }
+
+        async function saveSettings() {
+            settings.heroTitle = document.getElementById('sHeroTitle').value;
+            settings.heroSubtitle = document.getElementById('sHeroSub').value;
+            settings.statStudents = document.getElementById('sStudents').value;
+            settings.statSchools = document.getElementById('sSchools').value;
+            settings.statGradRate = document.getElementById('sGradRate').value;
+            settings.statFastGrad = document.getElementById('sFastGrad').value;
+            settings.contactEmail = document.getElementById('sEmail').value;
+
+            try {
+                const f = await getFile('/data/settings.json');
+                await saveFile('/data/settings.json', JSON.stringify(settings, null, 2),
+                    '更新网站设置', f.sha);
+                showToast('✅ 设置已保存');
+            } catch (e) {
+                showToast('❌ 保存失败: ' + e.message);
+            }
+        }
+
+        // Navigation
+        function showSection(name, el) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(`sec-${name}`).classList.add('active');
+            document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+            if (el) el.classList.add('active');
+            const titles = { dashboard: '数据概览', programs: '项目管理', testimonials: '学员故事', faqs: '常见问题', 'wp-programs': 'WP 项目管理', settings: '网站设置' };
+            document.getElementById('pageTitle').textContent = titles[name] || '';
+            
+            // Load WP programs when switching to that section
+            if (name === 'wp-programs') {
+                loadWpPrograms();
+            }
+        }
+
+        // WordPress API
+        const WP_API = 'https://public-api.wordpress.com/rest/v1.1/sites/252834205';
+        const WP_TOKEN = 'Uu9aF0qggJN$KOH(uU08IPzYgyPOp!TdpiB4yq0O#tY6#UP*v$48D0F6Cw&wsGsl';
+        let wpPrograms = [];
+        let wpEditingId = null;
+
+        async function loadWpPrograms() {
+            try {
+                const resp = await fetch(`${WP_API}/posts?category=热门项目&number=50&fields=ID,title,excerpt,date,tags,status`, {
+                    headers: { 'Authorization': `Bearer ${WP_TOKEN}` }
+                });
+                if (!resp.ok) throw new Error('WP API failed');
+                const data = await resp.json();
+                wpPrograms = data.posts || [];
+                renderWpPrograms();
+            } catch (e) {
+                console.error('Load WP programs failed:', e);
+                document.getElementById('wpProgramsTable').innerHTML = `<tr><td colspan="6" style="text-align:center;padding:40px;color:#ef4444">加载失败: ${e.message}</td></tr>`;
+            }
+        }
+
+        function renderWpPrograms() {
+            const tbody = document.getElementById('wpProgramsTable');
+            if (wpPrograms.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:40px;color:#999">暂无项目</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = wpPrograms.map((p, i) => {
+                const tags = Object.keys(p.tags || {}).join(', ');
+                const date = new Date(p.date).toLocaleDateString('zh-CN');
+                return `
+                    <tr>
+                        <td>${p.ID}</td>
+                        <td><strong>${p.title}</strong></td>
+                        <td>${date}</td>
+                        <td style="font-size:12px;color:#666;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${tags}</td>
+                        <td><span class="badge badge-green">${p.status}</span></td>
+                        <td class="actions">
+                            <a href="${p.URL}" target="_blank" class="btn btn-ghost btn-sm">👁️</a>
+                            <button class="btn btn-ghost btn-sm" onclick="editWpProgram(${i})">✏️</button>
+                            <button class="btn btn-ghost btn-sm" onclick="deleteWpProgram(${i})">🗑️</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function openWpProgramModal() {
+            wpEditingId = null;
+            document.getElementById('wpProgramModalTitle').textContent = '发布到 WordPress';
+            document.getElementById('wpTitle').value = '';
+            document.getElementById('wpContent').value = '';
+            document.getElementById('wpExcerpt').value = '';
+            document.getElementById('wpTags').value = '';
+            document.getElementById('wpImage').value = '';
+            document.getElementById('wpProgramModal').classList.add('active');
+        }
+
+        async function saveWpProgram() {
+            const title = document.getElementById('wpTitle').value.trim();
+            const content = document.getElementById('wpContent').value.trim();
+            const excerpt = document.getElementById('wpExcerpt').value.trim();
+            const tags = document.getElementById('wpTags').value.split(',').map(s => s.trim()).filter(Boolean);
+            const image = document.getElementById('wpImage').value.trim();
+
+            if (!title || !content) return showToast('请填写标题和内容');
+
+            const data = {
+                title,
+                content,
+                excerpt,
+                categories: ['热门项目'],
+                tags,
+                status: 'publish'
+            };
+
+            try {
+                const url = wpEditingId 
+                    ? `${WP_API}/posts/${wpEditingId}`
+                    : `${WP_API}/posts/new`;
+                const method = wpEditingId ? 'POST' : 'POST';
+                
+                const resp = await fetch(url, {
+                    method,
+                    headers: {
+                        'Authorization': `Bearer ${WP_TOKEN}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!resp.ok) throw new Error(`WP API ${resp.status}`);
+                
+                closeModals();
+                showToast(wpEditingId ? '✅ 已更新' : '✅ 已发布');
+                await loadWpPrograms();
+            } catch (e) {
+                showToast('❌ 发布失败: ' + e.message);
+            }
+        }
+
+        function editWpProgram(i) {
+            const p = wpPrograms[i];
+            wpEditingId = p.ID;
+            document.getElementById('wpProgramModalTitle').textContent = '编辑 WP 项目';
+            document.getElementById('wpTitle').value = p.title;
+            document.getElementById('wpContent').value = p.content || '';
+            document.getElementById('wpExcerpt').value = p.excerpt || '';
+            document.getElementById('wpTags').value = Object.keys(p.tags || {}).join(', ');
+            document.getElementById('wpImage').value = p.featured_image || '';
+            document.getElementById('wpProgramModal').classList.add('active');
+        }
+
+        async function deleteWpProgram(i) {
+            if (!confirm(`确定删除「${wpPrograms[i].title}」？`)) return;
+            try {
+                const resp = await fetch(`${WP_API}/posts/${wpPrograms[i].ID}/delete`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${WP_TOKEN}` }
+                });
+                if (!resp.ok) throw new Error('Delete failed');
+                showToast('✅ 已删除');
+                await loadWpPrograms();
+            } catch (e) {
+                showToast('❌ 删除失败: ' + e.message);
+            }
+        }
+
+        // Modal
+        function closeModals() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+            editingIndex = -1;
+            wpEditingId = null;
+        }
+
+        // Gradient
+        function selectGradient(el, value) {
+            document.querySelectorAll('.color-preset').forEach(p => p.classList.remove('selected'));
+            el.classList.add('selected');
+            document.getElementById('pGradient').value = value;
+        }
+
+        // Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Close modals on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(m => {
+            m.addEventListener('click', (e) => {
+                if (e.target === m) closeModals();
+            });
+        });
+    </script>
+</body>
+</html>
