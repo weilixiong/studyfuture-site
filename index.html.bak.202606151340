@@ -6,7 +6,7 @@
 <meta http-equiv="Expires" content="0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>环球硕博网 — 在职硕士 | 在职博士 | 免联考MBA | 留服认证</title>
+    <title>环球硕博网 — 在职硕博 · 免联考 · 全球名校 · 留服认证</title>
     <meta name="description" content="环球硕博网提供全球50+名校在线硕士、博士项目，在职可读免联考，1-2年毕业，学费3万起，教育部留服认证，学信网可查。适合在职人士提升学历、评职称、晋升管理层。免费资格评估，限时咨询。">
     <meta property="og:title" content="环球硕博网 — 在职硕士 | 在职博士 | 免联考MBA | 留服认证">
     <meta property="og:description" content="环球硕博网提供全球50+名校在线硕士、博士项目，在职可读免联考，1-2年毕业，教育部留服认证。免费资格评估。">
@@ -160,16 +160,6 @@
   ]
 }
     </script>
-
-    <link rel="alternate" hreflang="zh-CN" href="https://clawone.site/" />
-    <link rel="alternate" hreflang="en" href="https://clawone.site/en/" />
-    <link rel="alternate" hreflang="ja" href="https://clawone.site/ja/" />
-    <link rel="alternate" hreflang="fr" href="https://clawone.site/fr/" />
-    <link rel="alternate" hreflang="es" href="https://clawone.site/es/" />
-    <link rel="alternate" hreflang="ko" href="https://clawone.site/ko/" />
-    <link rel="alternate" hreflang="ms" href="https://clawone.site/ms/" />
-    <link rel="alternate" hreflang="x-default" href="https://clawone.site/" />
-
 </head>
 <body>
 <div id="root"><div class="flex flex-col min-h-screen font-sans"><nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-8 bg-transparent py-5"><div class="max-w-7xl mx-auto flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-8 h-8 bg-brand-gold rounded-sm flex items-center justify-center"><span class="text-primary font-bold text-lg">环</span></div><span class="text-xl font-bold tracking-tight text-white">环球硕博网</span></div><div class="hidden md:flex items-center gap-8"><a href="#" class="text-white/90 hover:text-brand-gold transition-colors text-sm font-medium" data-i18n="Home">首页</a><a href="#advantages" class="text-white/90 hover:text-brand-gold transition-colors text-sm font-medium" data-i18n="Core Advantages">核心优势</a><a href="#programs" class="text-white/90 hover:text-brand-gold transition-colors text-sm font-medium" data-i18n="Popular Programs">热门项目</a><a href="#testimonials" class="text-white/90 hover:text-brand-gold transition-colors text-sm font-medium" data-i18n="Student Stories">学员故事</a><a href="#faq" class="text-white/90 hover:text-brand-gold transition-colors text-sm font-medium" data-i18n="FAQ">常见问题</a><select id="lang-switcher" class="rounded-md px-3 py-1.5 cursor-pointer transition-all" onchange="switchLanguage(this.value)" style="display:inline-block;background-color:#c9a227;color:#1a2a3a;font-weight:700;border:none;">
@@ -188,11 +178,11 @@
         <div class="p-6"><div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">MBA</div><h4 class="text-lg font-bold text-primary mb-2">在线工商管理硕士</h4><p class="text-sm text-muted-foreground">全球名校MBA项目，AACSB/EQUIS认证，在职攻读，1.5-2年可完成。</p><div class="flex items-center gap-2 mt-4 text-brand-gold font-semibold text-sm">了解详情 <span class="group-hover:translate-x-1 transition-transform inline-block">→</span></div></div>
       </a>
       <a href="/online-med/" class="group block bg-white rounded-lg border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-        <div class="aspect-[4/3] overflow-hidden bg-muted"><img src="/assets/migrated/avatar_li.png" alt="在线M.Ed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy"></div>
+        <div class="aspect-[4/3] overflow-hidden bg-muted"><img src="/assets/migrated/pexels_906628_4872061.jpg" alt="在线M.Ed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy"></div>
         <div class="p-6"><div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">M.Ed</div><h4 class="text-lg font-bold text-primary mb-2">在线教育硕士</h4><p class="text-sm text-muted-foreground">专注教育领导力与创新，适合教育行业从业者提升学历与管理能力。</p><div class="flex items-center gap-2 mt-4 text-brand-gold font-semibold text-sm">了解详情 <span class="group-hover:translate-x-1 transition-transform inline-block">→</span></div></div>
       </a>
       <a href="/online-dba/" class="group block bg-white rounded-lg border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden">
-        <div class="aspect-[4/3] overflow-hidden bg-muted"><img src="/assets/migrated/avatar_wang.png" alt="DBA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy"></div>
+        <div class="aspect-[4/3] overflow-hidden bg-muted"><img src="/assets/migrated/1507f540eae745d6873bd7575dbebcba.jpg" alt="DBA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy"></div>
         <div class="p-6"><div class="text-xs font-bold text-brand-gold uppercase tracking-wider mb-2">DBA</div><h4 class="text-lg font-bold text-primary mb-2">工商管理博士</h4><p class="text-sm text-muted-foreground">面向高管与企业家，研究与实践并重，3-4年完成，提升学术与商业影响力。</p><div class="flex items-center gap-2 mt-4 text-brand-gold font-semibold text-sm">了解详情 <span class="group-hover:translate-x-1 transition-transform inline-block">→</span></div></div>
       </a>
       <a href="/online-mpa/" class="group block bg-white rounded-lg border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden">
@@ -325,7 +315,7 @@
           <a href="https://blog.clawone.site/ggu-2026-admission-open" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow h-9 px-4 py-2 w-full bg-primary text-white hover:bg-primary/90">了解更多</a>
         </div>
       </div>
-    </div></div></div></section><section class="py-20 bg-primary border-y border-brand-gold/20" id="stats-section"><div class="max-w-7xl mx-auto px-4 md:px-8"><div class="grid grid-cols-2 lg:grid-cols-4 gap-8"><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="10000" data-suffix="+">10000+</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="累计服务学员">累计服务学员</div><div class="text-white/30 text-[10px] mt-1">含全球50+院校在读及毕业生</div></div><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="50" data-suffix="+">50+</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="全球合作院校">全球合作院校</div></div><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="98" data-suffix="%">98%</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="毕业申请通过率">毕业申请通过率</div><div class="text-white/30 text-[10px] mt-1">基于合作院校2023-2025官方统计</div></div><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="120" data-suffix="+">120+</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="在线课程覆盖">在线课程覆盖</div></div></div></div></section><section id="testimonials" class="py-24 bg-background overflow-hidden"><div class="max-w-7xl mx-auto px-4 md:px-8"><div class="text-center max-w-3xl mx-auto mb-16 space-y-4"><h2 class="text-sm font-bold text-brand-gold uppercase tracking-[0.2em]" data-i18n="Student Stories">学员故事</h2><h3 class="text-3xl md:text-4xl font-bold text-primary" data-i18n="Student Stories Real Testimonials">学员故事 真实评价</h3><p class="text-muted-foreground">数万名职场精英的选择，见证他们的成长与突破。</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="relative p-8 bg-white rounded-lg border border-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote absolute top-6 right-8 w-12 h-12 text-primary/5" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg><p class="text-muted-foreground italic mb-8 relative z-10 flex-grow leading-relaxed">“在职读MBA曾是我觉得不可能完成的任务，但Global Master & PhD Network提供的在线项目完美解决了时间冲突。教授非常专业，课程内容紧贴实战。”</p><div class="flex items-center gap-4 border-t border-border pt-6"><span class="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 border border-brand-gold/20"><img class="aspect-square h-full w-full" alt="张女士" src="/assets/migrated/avatar_zhang.png" loading="lazy"></span><div><div class="font-bold text-primary">张女士</div><div class="text-xs text-muted-foreground uppercase">某外企人力资源总监</div></div></div></div><div class="relative p-8 bg-white rounded-lg border border-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote absolute top-6 right-8 w-12 h-12 text-primary/5" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg><p class="text-muted-foreground italic mb-8 relative z-10 flex-grow leading-relaxed">“通过这里的DBA项目，我不仅提升了学术素养，更结识了一群优秀的跨行人才。这种边学边悟的模式对职业生涯帮助巨大。”</p><div class="flex items-center gap-4 border-t border-border pt-6"><span class="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 border border-brand-gold/20"><img class="aspect-square h-full w-full" alt="王先生" src="/assets/migrated/avatar_wang.png" loading="lazy"></span><div><div class="font-bold text-primary">王先生</div><div class="text-xs text-muted-foreground uppercase">互联网公司技术专家</div></div></div></div><div class="relative p-8 bg-white rounded-lg border border-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote absolute top-6 right-8 w-12 h-12 text-primary/5" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg><p class="text-muted-foreground italic mb-8 relative z-10 flex-grow leading-relaxed">“这里的申请服务非常贴心，从评估到入学全程无忧。教育硕士的项目认证度很高，对我在学校的晋升起了关键作用。”</p><div class="flex items-center gap-4 border-t border-border pt-6"><span class="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 border border-brand-gold/20"><img class="aspect-square h-full w-full" alt="李女士" src="/assets/migrated/avatar_li.png" loading="lazy"></span><div><div class="font-bold text-primary">李女士</div><div class="text-xs text-muted-foreground uppercase">高校行政主管</div></div></div></div></div></div></section>
+    </div></div></div></section><section class="py-20 bg-primary border-y border-brand-gold/20" id="stats-section"><div class="max-w-7xl mx-auto px-4 md:px-8"><div class="grid grid-cols-2 lg:grid-cols-4 gap-8"><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="10000" data-suffix="+">10000+</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="累计服务学员">累计服务学员</div><div class="text-white/30 text-[10px] mt-1">含全球50+院校在读及毕业生</div></div><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="50" data-suffix="+">50+</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="全球合作院校">全球合作院校</div></div><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="98" data-suffix="%">98%</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="毕业申请通过率">毕业申请通过率</div><div class="text-white/30 text-[10px] mt-1">基于合作院校2023-2025官方统计</div></div><div class="text-center space-y-2"><div class="text-4xl md:text-5xl font-bold text-brand-gold" data-count="120" data-suffix="+">120+</div><div class="text-white/60 text-sm font-medium uppercase tracking-wider" data-i18n="在线课程覆盖">在线课程覆盖</div></div></div></div></section><section id="testimonials" class="py-24 bg-background overflow-hidden"><div class="max-w-7xl mx-auto px-4 md:px-8"><div class="text-center max-w-3xl mx-auto mb-16 space-y-4"><h2 class="text-sm font-bold text-brand-gold uppercase tracking-[0.2em]" data-i18n="Student Stories">学员故事</h2><h3 class="text-3xl md:text-4xl font-bold text-primary" data-i18n="Student Stories Real Testimonials">学员故事 真实评价</h3><p class="text-muted-foreground">数万名职场精英的选择，见证他们的成长与突破。</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="relative p-8 bg-white rounded-lg border border-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote absolute top-6 right-8 w-12 h-12 text-primary/5" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg><p class="text-muted-foreground italic mb-8 relative z-10 flex-grow leading-relaxed">“在职读MBA曾是我觉得不可能完成的任务，但Global Master & PhD Network提供的在线项目完美解决了时间冲突。教授非常专业，课程内容紧贴实战。”</p><div class="flex items-center gap-4 border-t border-border pt-6"><span class="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 border border-brand-gold/20"><img class="aspect-square h-full w-full" alt="张女士" src="/assets/migrated/baidu_image_search_a72951d6.jpg" loading="lazy"></span><div><div class="font-bold text-primary">张女士</div><div class="text-xs text-muted-foreground uppercase">某外企人力资源总监</div></div></div></div><div class="relative p-8 bg-white rounded-lg border border-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote absolute top-6 right-8 w-12 h-12 text-primary/5" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg><p class="text-muted-foreground italic mb-8 relative z-10 flex-grow leading-relaxed">“通过这里的DBA项目，我不仅提升了学术素养，更结识了一群优秀的跨行人才。这种边学边悟的模式对职业生涯帮助巨大。”</p><div class="flex items-center gap-4 border-t border-border pt-6"><span class="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 border border-brand-gold/20"><img class="aspect-square h-full w-full" alt="王先生" src="/assets/migrated/1507f540eae745d6873bd7575dbebcba.jpg" loading="lazy"></span><div><div class="font-bold text-primary">王先生</div><div class="text-xs text-muted-foreground uppercase">互联网公司技术专家</div></div></div></div><div class="relative p-8 bg-white rounded-lg border border-border shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote absolute top-6 right-8 w-12 h-12 text-primary/5" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg><p class="text-muted-foreground italic mb-8 relative z-10 flex-grow leading-relaxed">“这里的申请服务非常贴心，从评估到入学全程无忧。教育硕士的项目认证度很高，对我在学校的晋升起了关键作用。”</p><div class="flex items-center gap-4 border-t border-border pt-6"><span class="relative flex shrink-0 overflow-hidden rounded-full w-12 h-12 border border-brand-gold/20"><img class="aspect-square h-full w-full" alt="李女士" src="/assets/migrated/pexels_906628_4872061.jpg" loading="lazy"></span><div><div class="font-bold text-primary">李女士</div><div class="text-xs text-muted-foreground uppercase">高校行政主管</div></div></div></div></div></div></section>
 
 <!-- Assessment Modal - Fixed position outside all sections -->
 <!-- 咨询表单模态框 -->
@@ -1953,95 +1943,5 @@ if (statsSection) {
 </div>
 <!-- 智能客服 Widget -->
 <script src="https://chat.clawone.site/widget.js"></script>
-
-    <!-- SEO: FAQ structured content for search engines (hidden from visual display) -->
-    <section id="faq-seo" style="position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-    <h2>常见问题</h2>
-    <details>
-    <summary>在线学位是否被认可？</summary>
-    <p>是的，我们的合作院校均为当地教育部认证、全球公认的高水平大学。学位证书与在校生完全一致，无"在线"字样，全球认可。</p>
-    </details>
-    <details>
-    <summary>入学要求是什么？</summary>
-    <p>一般要求：本科及以上学历，有一定工作经验。部分项目接受大专学历+丰富工作经验。无需联考，申请制入学。</p>
-    </details>
-    <details>
-    <summary>在线学习如何进行？</summary>
-    <p>采用国际前沿的在线教学平台，视频课程+直播互动+在线作业+小组讨论。灵活安排学习时间，工作学习两不误。</p>
-    </details>
-    <details>
-    <summary>完成需要多长时间？</summary>
-    <p>硕士项目一般12-24个月，博士项目一般36-48个月。具体时长因项目而异，可根据个人进度调整。</p>
-    </details>
-    <details>
-    <summary>没有雅思或托福可以申请吗？</summary>
-    <p>可以。部分项目提供中文授课或配备中文翻译，无需语言成绩。英文授课项目如达到要求可免语言成绩。</p>
-    </details>
-    </section>
-    <!-- End SEO FAQ -->
-
-
-
-    <!-- 微信二维码悬浮按钮 + 回顶部按钮 -->
-    <style>
-      #wechat-qr-widget { position:fixed; bottom:88px; right:20px; z-index:9999998; }
-      #wechat-qr-btn { width:60px; height:60px; border-radius:50%; background:#07C160; color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15); font-size:24px; transition:transform 0.2s; }
-      #wechat-qr-btn:hover { transform:scale(1.1); }
-      #wechat-qr-popup { display:none; position:absolute; bottom:70px; right:70px; background:#fff; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.18); padding:16px; text-align:center; width:200px; }
-      #wechat-qr-popup p { margin:0; }
-      #wechat-qr-popup img { width:168px; height:168px; border-radius:8px; display:block; margin:0 auto; }
-      #back-to-top-btn { width:60px; height:60px; border-radius:50%; background:#2B5A8E; color:#fff; display:none; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.15); font-size:22px; transition:transform 0.2s, opacity 0.3s; margin-bottom:12px; border:none; }
-      #back-to-top-btn:hover { transform:scale(1.1); background:#3A6FA0; }
-      @media (max-width: 480px) {
-        #wechat-qr-widget { bottom:76px !important; }
-        #wechat-qr-btn, #back-to-top-btn { width:48px !important; height:48px !important; }
-        #wechat-qr-btn svg, #back-to-top-btn svg { width:24px !important; height:24px !important; }
-        #wechat-qr-popup { width:180px !important; }
-        #wechat-qr-popup img { width:150px !important; height:150px !important; }
-      }
-    </style>
-    <div id="wechat-qr-widget">
-      <button id="back-to-top-btn" aria-label="回到顶部">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-      </button>
-      <div id="wechat-qr-btn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.438 1.703-1.415 3.882-1.98 5.853-1.738-.576-3.86-4.38-6.66-8.594-6.66zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm3.68 4.025c-3.837 0-6.953 2.708-6.953 6.048 0 3.34 3.116 6.048 6.953 6.048.714 0 1.404-.098 2.058-.274a.648.648 0 0 1 .54.072l1.443.843a.243.243 0 0 0 .126.042.22.22 0 0 0 .218-.222c0-.054-.02-.108-.036-.16l-.295-1.119a.444.444 0 0 1 .16-.502C21.528 19.794 22.5 18.033 22.5 16.064c0-3.34-3.116-6.048-6.953-6.048h.431zm-2.563 2.943c.484 0 .877.398.877.89 0 .49-.393.888-.877.888a.883.883 0 0 1-.877-.889c0-.49.393-.889.877-.889zm4.958 0c.483 0 .876.398.876.89 0 .49-.393.888-.876.888a.883.883 0 0 1-.877-.889c0-.49.393-.889.877-.889z"/></svg>
-      </div>
-      <div id="wechat-qr-popup">
-        <p style="margin:0 0 8px;font-size:14px;font-weight:600;color:#333;">微信咨询</p>
-        <img src="/wechat_qr_v2.png" alt="微信二维码" style="width:168px;height:168px;border-radius:8px;display:block;margin:0 auto;" />
-        <p style="margin:8px 0 0;font-size:12px;color:#666;">微信号：GdHz110521</p>
-      </div>
-    </div>
-    <script>
-    (function(){
-      // 微信二维码弹窗
-      var btn = document.getElementById('wechat-qr-btn');
-      var popup = document.getElementById('wechat-qr-popup');
-      var visible = false;
-      btn.addEventListener('click', function(){
-        visible = !visible;
-        popup.style.display = visible ? 'block' : 'none';
-      });
-      document.addEventListener('click', function(e){
-        if(!document.getElementById('wechat-qr-widget').contains(e.target)){
-          visible = false;
-          popup.style.display = 'none';
-        }
-      });
-      // 回顶部按钮
-      var backBtn = document.getElementById('back-to-top-btn');
-      window.addEventListener('scroll', function(){
-        if(window.scrollY > 300){
-          backBtn.style.display = 'flex';
-        } else {
-          backBtn.style.display = 'none';
-        }
-      });
-      backBtn.addEventListener('click', function(){
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    })();
-    </script>
 </body>
 </html> html>
