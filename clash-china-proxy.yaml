@@ -1,0 +1,77 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: 🇨🇳 回国代理-西安电信
+    type: socks5
+    server: 159.223.33.162
+    port: 11080
+
+proxy-groups:
+  - name: 🇨🇳 回国模式
+    type: select
+    proxies:
+      - 🇨🇳 回国代理-西安电信
+      - DIRECT
+
+  - name: 🌐 国外直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🇨🇳 回国代理-西安电信
+
+rules:
+  # 流媒体 - 需要中国IP
+  - DOMAIN-SUFFIX,youku.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,ykimg.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,udid.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,kuwo.cn,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,kugou.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,qq.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,qqvideo.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,v.qq.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,gtimg.cn,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,jiguang.tv,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,vgotv.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,mgtv.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,le.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,pptv.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,bilibili.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,hdslb.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,acgvideo.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,iqiyi.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,iqiyipic.com,🇨🇳 回国模式
+
+  # 政务/社保/养老 - 需要中国IP
+  - DOMAIN-KEYWORD,养老,🇨🇳 回国模式
+  - DOMAIN-KEYWORD,社保,🇨🇳 回国模式
+  - DOMAIN-KEYWORD,hrss,🇨🇳 回国模式
+  - DOMAIN-KEYWORD,gov.cn,🇨🇳 回国模式
+  - DOMAIN-KEYWORD,12333,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,gov.cn,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,12333.gov.cn,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,si.gov.cn,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,mohrss.gov.cn,🇨🇳 回国模式
+
+  # 其他中国网站
+  - DOMAIN-SUFFIX,taobao.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,tmall.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,jd.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,alipay.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,weixin.qq.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,wechat.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,douyin.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,tiktokv.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,csdn.net,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,zhihu.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,xiaohongshu.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,163.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,126.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,baidu.com,🇨🇳 回国模式
+  - DOMAIN-SUFFIX,cn,🇨🇳 回国模式
+
+  # 兜底：国外直连
+  - MATCH,🌐 国外直连
